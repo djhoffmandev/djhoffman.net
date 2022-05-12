@@ -5,10 +5,9 @@ import React from 'react';
 function App() {
   // demo for react from markdown.io
   const [content, setContent] = React.useState(null);
-
-  const reader = new FileReader();
-  fetch(process.env.PUBLIC_URL + '/test.md').then(r => r.text()).then(t => {
-    console.log(t);
+  const urlsearch = new URL(window.location.href).search;
+  const page = new URLSearchParams(urlsearch).get("page") || 'index.md';
+  fetch(process.env.PUBLIC_URL + '/' + page).then(r => r.text()).then(t => {
     const ast = Markdoc.parse(t);
     const transformedContent = Markdoc.transform(ast);
     const react = Markdoc.renderers.react(transformedContent, React);
