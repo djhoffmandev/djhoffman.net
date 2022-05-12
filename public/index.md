@@ -6,3 +6,6 @@ Hello, my name is DJ Hoffman, and this is my personal website now. As per usual,
 
 ## Blog index
 [Building this Blog](?page=makingtheblog.md)
+
+## Source Repo
+[djhoffman.net repo](https://github.com/djhoffmandev/djhoffman.net)

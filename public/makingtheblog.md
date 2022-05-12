@@ -1,4 +1,5 @@
 # Making a Static Site Blog
+Source Code for this post: [makingtheblog.md](https://github.com/djhoffmandev/djhoffman.net/blob/main/public/makingtheblog.md)
 
 My goal as a writer is generally to lower the barrier to entry for my writing practices, while not making something that looks like shit.
 While I don't always accomplish the latter, I've found that I personally work best with a simple markup language like Markdown.
