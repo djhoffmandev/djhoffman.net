@@ -1,25 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import Markdoc from '@markdoc/markdoc';
+import React from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. hello world
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  // demo for react from markdown.io
+  const [content, setContent] = React.useState(null);
+
+  const reader = new FileReader();
+  fetch('../public/test.md').then(r => r.text()).then(t => {
+    console.log(t);
+    const ast = Markdoc.parse(t);
+    const transformedContent = Markdoc.transform(ast);
+    const react = Markdoc.renderers.react(transformedContent, React);
+    setContent(react);
+  })
+  
+  if (!content) {
+    return <p>Loading...</p>
+  }
+  return content;
 }
 
 export default App;
