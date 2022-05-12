@@ -7,7 +7,7 @@ function App() {
   const [content, setContent] = React.useState(null);
 
   const reader = new FileReader();
-  fetch('../public/test.md').then(r => r.text()).then(t => {
+  fetch(process.env.PUBLIC_URL + '/test.md').then(r => r.text()).then(t => {
     console.log(t);
     const ast = Markdoc.parse(t);
     const transformedContent = Markdoc.transform(ast);
